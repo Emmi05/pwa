@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./aseets/boot/mdb.dark.min.css">
+    <link rel="stylesheet" href="./aseets/css/style.css">
+    <link rel="stylesheet" href="./aseets/fonts/">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="fontawesome-free-5.0.0-web/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>pwa chat</title>
+
+</head>
+<body>
+<!-- Modal -->
+<div class="modal top fade" id="modalchat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
+    <div class="modal-dialog  ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Chat en Vivo</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- este id de procesos se usa en el main  -->
+            <main id="procesos"></main>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cerrarSesion" class="btn btn-primary d-none" onclick="cerrar();">
+            Cerrar Sesión
+          </button>
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+            Cerrar
+          </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+     <main class="container-fluid vh-100 position-relative">
+        <section class="position-absolute btn__floating">
+            <ul>
+              <!-- el #modalchat es el identificar, mucho ojo eh -->
+                <li><a href="#" data-mdb-toggle="modal" data-mdb-target="#modalchat" >
+                    
+                    <i class="fa-solid fa-comments"></i>
+                
+                </a>
+            </li>
+
+                <li class="mt-2"><a href="">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </li>
+            </ul>
+
+        </section>
+        <img src="./aseets/imgs/fondo2.webp" alt="Imagen de fondo" class="imagen-fondo">
+           
+
+
+        <!-- <section class="animacion position-absolute w-100 vh-100"></section>
+        <section class="lamina d-flex justify-content-center align-items-center position-absolute  w-100 vh-100"></section> -->
+        
+    </main>
+    
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="fontawesome-free-5.0.0-web/js/all.min.js"></script>
+    <script src="./aseets/boot/mdb.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="aseets/conexion/conexion.js"></script>
+    <script src="./aseets/js/main.js"></script>
+
+</body>
+</html>

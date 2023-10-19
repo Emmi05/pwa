@@ -1,0 +1,85 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   }
+   
+   .imagen-fondo {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    filter: blur(5px); /* Propiedad agregada para aplicar el distorcionado */
+    -webkit-filter: blur(5px); /* Propiedad agregada para aplicar el distorcionado */
+    animation: zoom-in-zoom-out 30s ease infinite;
+}
+  /* 
+@keyframes zoom-in-zoom-out {
+    0%{
+        transform: scale(1.2,1.2);
+    }
+    50%{
+        transform: scale(1.5,1.5);
+    }
+    100%{
+        transform: scale(1.2,1.2);
+    }
+}
+ */
+
+ .btn__floating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+.btn__floating ul {
+    list-style: none;
+    padding: 0;
+}
+
+.btn__floating ul li:nth-child(1) a i{
+    background-color: #7a058e;
+}
+
+.btn__floating ul li:nth-child(2) a i{
+    background-color: #009e20;
+
+}
+
+.btn__floating ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14pt;
+
+
+}
+
+.btn__floating ul li a i {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.lottie{
+    display: flex;
+    top: -50%; /* Ajusta este valor para bajar o subir el elemento Lottie */
+    justify-content: center;
+    align-items: center;
+    height: 5%;
+}
