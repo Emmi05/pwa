@@ -1,9 +1,12 @@
 //tiene que estar en un servidor ggg, puede ser XAMP o live server
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      //si se logea que pase esto
       $('#procesos').load('./aseets/pages/chat.html')
       var uid = user.uid;
       $('#cerrarSesion').removeClass('d-none')
+      //var nombreUser= localStorage.getItem("userName");
+      //console.log(nombreUser);
     
     } else {
         $('#procesos').load('./aseets/pages/login.html')
@@ -51,4 +54,65 @@ firebase.auth().onAuthStateChanged((user) => {
   });
  }
 
+ function login(){
+  //los saque de los input de login
+  const email=document.getElementById('email').value
+  const password=document.getElementById('password').value
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    db.collection('usuarios').where('email',"==", email).get().then((query)=>{
+      query.forEach(element => {
+        var nombrex=element.data().nombre
+        localStorage.setItem('userName', nombrex);
+
+      });
+    })
+
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+
+ }
+
+function enviar(){
+  //va a recoger la info del btn para enviarla a la bd
+  const mensaje =document.getElementById('inputChat')
+  var nombreUser =  localStorage.getItem("userName")
+
+  if(mensaje.value === ""){
+    alert('No hay Mensaje para enviar')
+  }else{
+    db.collection('chat').get().then((query) => {
+      var index =""
+      const ubicacion = query.docs.length + 1
+      
+
+      if(ubicacion < 10){
+        index='0' + ubicacion 
+      }else{
+        //le decimos que es igual a la ubicacion si es mayor a 10 para hacer el orden
+        index= ubicacion.toString()
+      }
+       //hacemos la consulta
+      db.collection('chat').add({
+        mensaje:mensaje.value,
+        nombre:nombreUser,
+        fecha:moment().format('MMMM D YYYY, h:mm:ss a'),
+        index:index
+      })
+
+      }).then(()=>{
+        mensaje.value=""
+      })
+  }
  
+
+}
+
+//hacemos una consulta
+db.collection('chat').onSnapshot

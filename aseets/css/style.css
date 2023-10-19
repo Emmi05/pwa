@@ -83,3 +83,11 @@ body, html {
     align-items: center;
     height: 5%;
 }
+
+/*lo saque de chat*/
+.contenido{
+    height: 300px ;
+    max-height: 300px;
+    overflow-y: auto;
+    
+}

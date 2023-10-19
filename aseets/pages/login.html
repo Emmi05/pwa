@@ -36,14 +36,15 @@
   
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="loginName" class="form-control" />
-          <label class="form-label" for="loginName">Email</label>
+           <!-- Email modifique id y for para usarlo al autentificar usuario -->
+          <input type="email" id="email" class="form-control" />
+          <label class="form-label" for="email">Email</label>
         </div>
   
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="password" id="loginPassword" class="form-control" />
-          <label class="form-label" for="loginPassword">Password</label>
+          <input type="password" id="password" class="form-control" />
+          <label class="form-label" for="password">Password</label>
         </div>
   
         <!-- 2 column grid layout -->
@@ -63,7 +64,7 @@
         </div>
   
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4" onclick="login();">Entrar</button>
   
         
       </form>
