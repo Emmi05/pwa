@@ -85,7 +85,12 @@ function enviar(){
   var nombreUser =  localStorage.getItem("userName")
 
   if(mensaje.value === ""){
-    alert('No hay Mensaje para enviar')
+    Swal.fire(
+      'Enviaste algo?',
+      'No hay mensaje para enviar',
+      'question'
+    )
+    
   }else{
     db.collection('chat').get().then((query) => {
       var index =""
