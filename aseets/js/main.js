@@ -138,4 +138,15 @@ function enviar(){
 
 }
 
+function recuperar(){
+  const email=document.getElementById('email').value
+  var auth =firebase.auth()
+  
+  auth.sendPasswordResetEmail(email).then(()=>{
+    alert("Enviamos un correo con el link de recupeción a su email...");
+  }).catch((err)=>{
+    alert("Su email no está registrado...");
 
+  })
+
+}
