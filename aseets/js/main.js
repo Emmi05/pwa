@@ -7,7 +7,26 @@ firebase.auth().onAuthStateChanged((user) => {
       $('#cerrarSesion').removeClass('d-none')
       //var nombreUser= localStorage.getItem("userName");
       //console.log(nombreUser);
-    
+        //hacemos una consulta con un observador (en tiempo real) con snapshot
+        db.collection('chat').orderBy('index', 'desc').onSnapshot((query)=>{
+          const contenido =document.getElementById('contenido')
+          contenido.innerHTML = ""
+          query.forEach((element =>{
+            const doc=element.data();
+            //que me concardene con el contenido que vamos a traer
+            contenido.innerHTML += `<div class="cnt__msj d-flex flex-column animate__animated animate__fadeIn"> 
+            <div class="cnt__info d-flex align-items-center"> 
+              <i class="fa-solid fa-user"></i>
+              <span>${doc.nombre}</span>
+            </div>
+            <div class="msj">${doc.mensaje} </div>
+            <div class="cnt__fecha">${doc.fecha} </div>
+            <hr>
+
+            </div>`
+          }))
+        })
+        //sino se LOGEO
     } else {
         $('#procesos').load('./aseets/pages/login.html')
         $('#cerrarSesion').addClass('d-none')
@@ -119,5 +138,4 @@ function enviar(){
 
 }
 
-//hacemos una consulta
-db.collection('chat').onSnapshot
+
